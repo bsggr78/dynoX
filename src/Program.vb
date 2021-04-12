@@ -1,17 +1,15 @@
 Imports System
-Imports Telegram.Bot
-Imports System.Diagnostics
-Imports System.Diagnostics.Process
-Imports System.IO
+
 Imports System.Threading
 
 Module Program
 
-    Dim ngrok As New Process
-    Dim ttyd As New Process
+    
    
-    Dim exitcmd As Boolean
+   
     Sub Main(Args As String())
+        Dim ngrok As New Process
+        Dim ttyd As New Process
         IO.Directory.CreateDirectory("/root/herokupatcher")
         ' IO.File.WriteAllBytes("/root/herokupatcher/ngrok", My.Resources.Resources.ngrok)
         'IO.File.WriteAllBytes("/root/herokupatcher/ttyd", My.Resources.Resources.ttyd)
@@ -26,9 +24,9 @@ Module Program
         ttyd.StartInfo.Arguments = "-p 5143 bash"
         ttyd.StartInfo.WorkingDirectory = "/root/herokupatcher"
         ttyd.StartInfo.UseShellExecute = False
-        ttyd.EnableRaisingEvents = True
+        'ttyd.EnableRaisingEvents = True
         ttyd.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
-        ttyd.StartInfo.CreateNoWindow = True
+        'ttyd.StartInfo.CreateNoWindow = True
 
 
 
