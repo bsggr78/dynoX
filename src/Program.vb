@@ -3,6 +3,7 @@ Imports Telegram.Bot
 Imports System.Diagnostics
 Imports System.Diagnostics.Process
 Imports System.IO
+Imports System.Threading
 
 Module Program
 
@@ -44,10 +45,9 @@ Module Program
         'Dim fs As FileStream = System.IO.File.OpenRead("/root/herokupatcher/nohup.out")
         'Dim inputOnlineFile As Telegram.Bot.Types.InputFiles.InputOnlineFile = New Telegram.Bot.Types.InputFiles.InputOnlineFile(fs, "ngrok.txt")
         'bot.SendDocumentAsync(id, inputOnlineFile)
-        While exitcmd = False
-
-
-        End While
+        Dim locker As New ManualResetEvent(false)
+        locker.WaitOne()
+      
 
     End Sub
 
